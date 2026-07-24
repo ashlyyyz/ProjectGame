@@ -24,7 +24,7 @@ const CONFIG = {
     ENEMY_SIZE: 25,
     BOSS_SIZE: 45,
     HEART_SIZE: 28,
-    PLAYER_SPEED: 3,
+    PLAYER_SPEED: 4,
     FOOD_SPAWN_RATE: 90,
     ENEMY_SPAWN_RATE: 90,
     HEART_SPAWN_INTERVAL: 180,
@@ -291,12 +291,12 @@ function drawLoginScreen() {
     titleGrad.addColorStop(0, '#a8e063');
     titleGrad.addColorStop(1, '#56ab2f');
     ctx.fillStyle = titleGrad;
-    ctx.fillText('🍏 NUTRITION TOWN', 450, 80);
+    ctx.fillText("🍏 ASHLY'S NUTRITION QUEST", 450, 80);
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
     ctx.fillStyle = '#b8e0d0';
     ctx.font = '16px Arial';
-    ctx.fillText('— save the city, eat healthy —', 450, 120);
+    ctx.fillText('— Defeat Junk Food. Restore Healthy Living. —', 450, 120);
     
     // Login/Register Box
     const boxX = 200, boxY = 160, boxW = 500, boxH = 380;
@@ -512,7 +512,7 @@ function drawTitleScreen() {
     const buttons = [
         { text: '▶ PLAY', x: 80, color: '#3b7a5e' },
         { text: '📖 STORY', x: 230, color: '#7d6b4b' },
-        { text: '🏆 HIGHEST SCORE', x: 380, color: '#2e6b8a' },
+        { text: '🏆 HIGHEST SCORE', x: 360, color: '#2e6b8a' },
         { text: '🎬 CREDITS', x: 580, color: '#5f4f6b' },
         { text: '🚪 LOGOUT', x: 730, color: '#8b3a3a' }
     ];
@@ -543,7 +543,7 @@ function drawHighScoresScreen() {
     ctx.fillStyle = '#f0f8f0';
     ctx.font = 'bold 40px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('🏆 High Scores', 450, 90);
+    ctx.fillText('🏆 High Scores', 410, 70);
     
     const scores = getHighScores();
     
@@ -681,15 +681,17 @@ function drawCreditsScreen() {
     ctx.fillText('🎬 Credits', 450, 100);
     
     const credits = [
+        "QUEEN ASHLY COLONGAN",
+        '',
         '🍏 Nutrition Town',
-        '',
         'Created for Nutrition Month 2026',
-        '',
         '🎮 Game Design: PixelForge Studio',
         '📚 Educational Content: Nutrition Experts',
-        '',
         '❤️ Heart Power-ups: Collect for extra lives!',
-        '🌱 "Eat healthy, live strong!"'
+        '🌱 "Eat healthy, live strong!"',
+        "",
+        "🥗 Good nutrition isn't a diet—it's the foundation of a healthier and happier life.",
+        "🌿 Nutrition is not about perfection; it's about making healthier choices, one meal at a time."
     ];
     
     ctx.textAlign = 'center';
@@ -838,7 +840,7 @@ function drawGameScreen() {
     ctx.textBaseline = 'middle';
     ctx.shadowColor = 'rgba(46,204,113,0.5)';
     ctx.shadowBlur = 15;
-    ctx.fillText('🦸', player.x, player.y);
+    ctx.fillText('💩', player.x, player.y);
     ctx.shadowBlur = 0;
     ctx.globalAlpha = 1;
     
@@ -1036,10 +1038,13 @@ function drawVictoryScreen() {
     ctx.fillStyle = '#d0e8e0';
     ctx.font = '15px Arial';
     const messages = [
+        
         '🌳 Parks are green again',
         '🏫 Schools serve nutritious meals',
         '😊 Citizens are healthy and happy',
-        '🎊 Nutrition Month is celebrated by all!'
+        '🎊 Nutrition Month is celebrated by all!',
+        "🍏✨ Every healthy bite is a quiet promise to yourself: to grow stronger, live brighter, and become the best version of who you can be." 
+        
     ];
     messages.forEach((m, i) => {
         ctx.fillText(m, 450, 440 + i * 26);
@@ -1358,7 +1363,7 @@ function defeatBoss() {
             game.screen = 'victory';
             game.isVictory = true;
             game.selectedButton = 0;
-            showToast('🏆 Nutrition Town is saved!', 3000);
+            showToast('🏆 Nutrition Town is saved! 🎉 CONGRATULATIONS LANGGA! 🎉', 3000);
         } else {
             game.screen = 'levelComplete';
             game.selectedButton = 0;
